@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+// Stephanie Zepeda
+// 190735@llinstitute.com
+// 12/10/2020
+<title>youtube playlist</title>
+<h2>youtube playlist</h2>
+<link rel="stylesheet" href="mystyle.css">
+
+</head>
+
+<body>
+  <p>For the video to being able to be sumbited correctly it is need to use the embed code</p>
+  <label for="video">Add video:</label> <br />
+  <input type="text" id="video" name="video"/> <br />
+  <br />
+  <button type="button" onclick="list();">Add</button><br />
+  <p id="demo"></p>
+
+
+  <script>
+  // Example of avg calc using class.
+
+  class  YTPlaylist{
+      constructor() {
+          this.vid = [];
+      }
+      addVideo(newVideo) {
+          this.vid.push(newVideo);
+      }
+
+        add(){
+          var i, text;
+          text = "<table><tr><th> youtube video list </th></tr>";
+          for (i = 0; i < this.vid.length; i++) {
+            var video = this.vid[i];
+            text = text + "<tr><td>" + video + "</td></tr>";
+            console.log(text);
+          }
+          text = text + "</table>";
+          return text;
+        }
+    }
+
+
+var playlist = new YTPlaylist();
+
+  function list(){
+    var link = document.getElementById("video").value;
+    playlist.addVideo(link);
+    var linkTable = playlist.add();
+    document.getElementById("demo").innerHTML = linkTable;
+  }
+
+
+</script>
+</body>
+</html>
