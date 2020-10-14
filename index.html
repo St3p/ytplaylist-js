@@ -32,9 +32,19 @@
         add(){
           var i, text;
           text = "<table><tr><th> youtube video list </th></tr>";
-          for (i = 0; i < this.vid.length; i++) {
-            var video = this.vid[i];
-            text = text + "<tr><td>" + video + "</td></tr>";
+          for (var x of this.vid) {
+            text += "<tr><td>";
+            text += "<iframe"+" ";
+            text += 'width="560"'+" ";
+            text += 'height="315"'+ " ";
+            text += 'src="https://www.youtube.com/embed/' + this.vid + '" ';
+            text += 'frameborder="0" ';
+            text += 'allow="accelerometer; ';
+            text += 'autoplay; ';
+            text += 'clipboard-write; ';
+            text += 'encrypted-media;';
+            text += 'gyroscope; picture-in-picture" allowfullscreen></iframe>';
+            text += "</td></tr>";
             console.log(text);
           }
           text = text + "</table>";
